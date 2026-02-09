@@ -1,0 +1,34 @@
+[2026-02-08 14:23:15] INFO: Agent starting: github_code_analyzer
+[2026-02-08 14:23:16] INFO: [iter=0] Running LLM turn (msgs=2)
+[2026-02-08 14:23:18] INFO: Tool call: github_search_code(query="authentication")
+[2026-02-08 14:23:19] INFO: Tool result: 6,400 chars
+[2026-02-08 14:23:19] INFO: Estimated tokens: 1,600 (20% of 8,000 limit)
+[2026-02-08 14:23:20] INFO: [iter=1] Running LLM turn (msgs=4)
+[2026-02-08 14:23:22] INFO: Tool call: github_get_file(path="auth.py")
+[2026-02-08 14:23:23] INFO: Tool result: 3,200 chars
+[2026-02-08 14:23:23] INFO: Estimated tokens: 2,400 (30% of 8,000 limit)
+[2026-02-08 14:23:24] INFO: [iter=2] Running LLM turn (msgs=6)
+[2026-02-08 14:23:26] INFO: Tool call: github_list_issues(label="security")
+[2026-02-08 14:23:27] INFO: Tool result: 2,800 chars
+[2026-02-08 14:23:27] INFO: Estimated tokens: 3,100 (39% of 8,000 limit)
+[2026-02-08 14:23:28] INFO: [iter=3] Running LLM turn (msgs=8)
+[2026-02-08 14:23:30] INFO: Tool call: github_search_code(query="verify_password")
+[2026-02-08 14:23:31] INFO: Tool result: 4,100 chars
+[2026-02-08 14:23:31] INFO: Estimated tokens: 4,125 (52% of 8,000 limit)
+[2026-02-08 14:23:32] INFO: [iter=4] Running LLM turn (msgs=10)
+[2026-02-08 14:23:34] INFO: Tool call: github_get_file(path="middleware.py")
+[2026-02-08 14:23:35] INFO: Tool result: 2,900 chars
+[2026-02-08 14:23:35] INFO: Estimated tokens: 4,850 (61% of 8,000 limit)
+[2026-02-08 14:23:36] INFO: [iter=5] Running LLM turn (msgs=12)
+[2026-02-08 14:23:37] ERROR: LLM call failed: anthropic.BadRequestError
+[2026-02-08 14:23:37] ERROR: context_length_exceeded: This model's maximum context length is 8192 tokens.
+[2026-02-08 14:23:37] ERROR: However, your messages resulted in 9347 tokens (1155 over the limit).
+[2026-02-08 14:23:37] ERROR: Stack trace:
+  File "event_loop_node.py", line 612, in _run_single_turn
+    async for event in ctx.llm.stream(...)
+  File "anthropic_provider.py", line 89, in stream
+    async for chunk in self.client.messages.stream(...)
+[2026-02-08 14:23:37] ERROR: Agent crashed after 5 iterations
+[2026-02-08 14:23:37] ERROR: Framework estimated: 4,850 tokens (61%)
+[2026-02-08 14:23:37] ERROR: Actual usage: 9,347 tokens (117%)
+[2026-02-08 14:23:37] ERROR: Underestimate: -48%
